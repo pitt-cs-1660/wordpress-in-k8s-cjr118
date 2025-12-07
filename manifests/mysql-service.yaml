@@ -4,7 +4,7 @@ metadata:
   name: wordpress-mysql
 spec:
   selector:
-    app:wordpress
+    app: wordpress
     tier: mysql
   ports:
     - port: 3306
