@@ -62,7 +62,7 @@ spec:
         ##
         # mount non-sensitive environment vars from configmap using configMapKeyRef
         # WORDPRESS_DB_HOST (from wordpress configmap, key: host)
-        # WORDPRESS_DB_USER (from wordpress configmap, key: user)
+        # WORDPRESS_DB_USER (from wordpress configmap, key: user).
         ##
         - name: WORDPRESS_DB_HOST
           valueFrom:
