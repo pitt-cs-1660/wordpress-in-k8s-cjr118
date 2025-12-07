@@ -9,7 +9,7 @@ metadata:
 spec:
   ports:
     - port: 80
-      name: mysql
+      name: http
       targetPort: 80
   ##
   # create service selector labels here
@@ -92,15 +92,15 @@ spec:
         ##
         volumeMounts:
           - name: mysql-persistent-storage
-            mountPath: /var/lib/mysql
+            mountPath: /var/www/html
       ##
       # add volumes at the pod spec level (same indentation as containers)
       # reference the PVC: wp-pv-claim
       ##
       volumes:
-        - name: mysql-persistent-storage
+        - name: wp-persistent-storage
           persistentVolumeClaim:
-            claimName: mysql-pv-claim
+            claimName: wp-pv-claim
 ---
 ##
 # create persistent volume claim here
@@ -114,7 +114,7 @@ metadata:
   name: wp-pv-claim
 spec:
   accessModes:
-    -ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
