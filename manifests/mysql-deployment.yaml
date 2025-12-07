@@ -9,12 +9,13 @@ metadata:
 spec:
   ports:
     - port: 3306
-      name: http
+      name: mysql
       targetPort: 3306
   ##
   # create service selector labels here
   # hint: should match the deployment's labels
   selector:
+    matchLabels:
      app: wordpress
      tier: mysql
   ##
