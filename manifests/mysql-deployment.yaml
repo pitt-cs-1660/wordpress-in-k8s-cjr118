@@ -14,9 +14,9 @@ spec:
   ##
   # create service selector labels here
   # hint: should match the deployment's labels
-  # selector:
-  #   app: wordpress
-  #   tier: mysql
+  selector:
+     app: wordpress
+     tier: mysql
   ##
 ---
 apiVersion: v1
@@ -29,6 +29,8 @@ data:
   # database: wordpress
   # user: wordpress
   ##
+  host: wordpress
+  user: wordpress
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -40,8 +42,8 @@ metadata:
 spec:
   ##
   # create deployment selector here
-  # app: wordpress
-  # tier: mysql
+   app: wordpress
+   tier: mysql
   ##
   template:
     ##
@@ -82,4 +84,14 @@ spec:
 # storage: 1Gi
 # accessModes: ReadWriteOnce
 ##
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 
