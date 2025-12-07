@@ -15,8 +15,8 @@ spec:
   # create service selector labels here
   # hint: should match the deployment's labels
   selector:
-     app: wordpress
-     tier: mysql
+    app: wordpress
+    tier: mysql
   ##
 ---
 apiVersion: v1
