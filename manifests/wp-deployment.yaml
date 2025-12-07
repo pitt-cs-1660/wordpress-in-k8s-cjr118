@@ -91,7 +91,7 @@ spec:
         # mount path: /var/www/html
         ##
         volumeMounts:
-          - name: mysql-persistent-storage
+          - name: wp-persistent-storage
             mountPath: /var/www/html
       ##
       # add volumes at the pod spec level (same indentation as containers)
